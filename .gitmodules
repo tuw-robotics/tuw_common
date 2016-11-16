@@ -1,3 +1,6 @@
 [submodule "tuw_geometry"]
 	path = tuw_geometry
 	url = git@github.com:tuw-robotics/tuw_geometry.git
+[submodule "tuw_control"]
+	path = tuw_control
+	url = git@gitlab.auto.tuwien.ac.at:robotic/tuw_control.git
