@@ -4,3 +4,9 @@
 [submodule "tuw_control"]
 	path = tuw_control
 	url = git@gitlab.auto.tuwien.ac.at:robotic/tuw_control.git
+[submodule "tuw_msgs"]
+	path = tuw_msgs
+	url = git@github.com:tuw-robotics/tuw_msgs.git
+[submodule "tuw_teleop"]
+	path = tuw_teleop
+	url = git@github.com:tuw-robotics/tuw_teleop.git
