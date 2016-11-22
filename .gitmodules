@@ -7,3 +7,6 @@
 [submodule "tuw_teleop"]
 	path = tuw_teleop
 	url = git@github.com:tuw-robotics/tuw_teleop.git
+[submodule "tuw_control"]
+	path = tuw_control
+	url = git@github.com:tuw-robotics/tuw_control.git
