@@ -11,5 +11,5 @@
 	path = tuw_control
 	url = git@github.com:tuw-robotics/tuw_control.git
 [submodule "tuw_rviz_plugins"]
-	path = tuw_rviz_plugins
-	url = ./tuw_rviz_plugins
+	path = tuw_rviz
+	url = git@github.com:tuw-robotics/tuw_rviz.git 
