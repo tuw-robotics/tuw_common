@@ -12,32 +12,30 @@ Be aware that the submodules are not nessesarly the last avalibe version.
 ### Update a submodule to latest commit on origin
 The git submodule update command actually tells Git that you want your submodules to each check out the commit already specified in the index of the superproject. If you want to update your submodules to the latest commit available from their remote, you will need to do this directly in the submodules. [source: https://stackoverflow.com/questions/5828324/update-git-submodule-to-latest-commit-on-origin]
 
-
-#### Update submodule:
 ```
-cd your_root_folder_with_submodules
+export TUW_COMMON_DIR=$HOME/projects/catkin/mpn/base/src/tuw_common
+git clone git@github.com:tuw-robotics/tuw_common.git $TUW_COMMON_DIR
+cd $TUW_COMMON_DIR
+git git submodule update --init --recursive
 
-# time passes, submodule upstream is updated
-# and you now want to update
-
-# change to the submodule directory
-cd submodule_dir
-
-# checkout desired branch
+cd tuw_control 
 git checkout master
+git pull origin master
 
-# update
-git pull
+cd ../tuw_geometry
+git checkout kinetic
+git pull origin kinetic
 
-# get back to your project root
-cd ..
+cd ../tuw_msgs
+git checkout master
+git pull origin master
 
-# now the submodules are in the state you want, so
-git commit -am "Pulled down update to submodule_dir"
-```
-#### Commit submodule update:
-```
-cd your_root_folder_with_submodules
-git push
+cd ../tuw_rviz
+git checkout master
+git pull origin master
+
+cd ../tuw_teleop
+git checkout master
+git pull origin master
 ```
 
