@@ -18,7 +18,7 @@ The git submodule update command actually tells Git that you want your submodule
 
 ```
 cd $TUW_COMMON_DIR
-git git submodule update --init --recursive
+git submodule update --init --recursive
 
 cd tuw_control 
 git checkout master
