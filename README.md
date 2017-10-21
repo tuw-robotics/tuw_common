@@ -17,8 +17,6 @@ Be aware that the submodules are not nessesarly the last avalibe version.
 The git submodule update command actually tells Git that you want your submodules to each check out the commit already specified in the index of the superproject. If you want to update your submodules to the latest commit available from their remote, you will need to do this directly in the submodules. [source: https://stackoverflow.com/questions/5828324/update-git-submodule-to-latest-commit-on-origin]
 
 ```
-export TUW_COMMON_DIR=$HOME/projects/catkin/mpn/base/src/tuw_common
-git clone git@github.com:tuw-robotics/tuw_common.git $TUW_COMMON_DIR
 cd $TUW_COMMON_DIR
 git git submodule update --init --recursive
 
