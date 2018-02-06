@@ -44,7 +44,6 @@
 
   <run_depend>tuw_control</run_depend>
   <run_depend>tuw_geometry</run_depend>
-  <run_depend>tuw_msgs</run_depend>
   <run_depend>tuw_rviz</run_depend>
   <run_depend>tuw_teleop</run_depend>
 
