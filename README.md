@@ -25,8 +25,8 @@ git checkout master
 git pull origin master
 
 cd ../tuw_geometry
-git checkout kinetic
-git pull origin kinetic
+git checkout master
+git pull origin master
 
 cd ../tuw_msgs
 git checkout master
