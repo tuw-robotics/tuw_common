@@ -77,6 +77,7 @@ class RewrittenYaml(launch.Substitution):
                 self.__key_rewrites[key] = normalize_to_list_of_substitutions(key_rewrites[key])
         if root_key is not None:
             self.__root_key = normalize_to_list_of_substitutions(root_key)
+        
 
     @property
     def name(self) -> List[launch.Substitution]:
