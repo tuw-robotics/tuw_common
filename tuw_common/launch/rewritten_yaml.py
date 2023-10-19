@@ -46,11 +46,11 @@ class RewrittenYaml(launch.Substitution):
 
     def __init__(self,
         source_file: launch.SomeSubstitutionsType,
+        oginal_file: launch.SomeSubstitutionsType,
         param_rewrites: Dict,
         root_key: Optional[launch.SomeSubstitutionsType] = None,
         key_rewrites: Optional[Dict] = None,
-        convert_types = False,
-        prefix = str("")) -> None:
+        convert_types = False) -> None:
         super().__init__()
         """
         Construct the substitution
@@ -65,10 +65,10 @@ class RewrittenYaml(launch.Substitution):
 
         from launch.utilities import normalize_to_list_of_substitutions  # import here to avoid loop
         self.__source_file = normalize_to_list_of_substitutions(source_file)
+        self.__oginal_file = normalize_to_list_of_substitutions(oginal_file)
         self.__param_rewrites = {}
         self.__key_rewrites = {}
         self.__convert_types = convert_types
-        self.__prefix = prefix
         self.__root_key = None
         for key in param_rewrites:
             self.__param_rewrites[key] = normalize_to_list_of_substitutions(param_rewrites[key])
@@ -90,10 +90,14 @@ class RewrittenYaml(launch.Substitution):
 
     def perform(self, context: launch.LaunchContext) -> Text:
         yaml_filename = launch.utilities.perform_substitutions(context, self.name)
-        dirname = os.path.dirname(yaml_filename)
-        basename = os.path.basename(yaml_filename)
-        destination_file_name = os.path.join(dirname, self.__prefix + "_" + basename)
+        orginal_filename = launch.utilities.perform_substitutions(context, self.__oginal_file)
+        root_key = launch.utilities.perform_substitutions(context, self.__root_key)
+        dirname = os.path.dirname(orginal_filename)
+        basename = os.path.basename(orginal_filename)
+        file_name = root_key + "_" + basename
+        destination_file_name = os.path.join(dirname, file_name)
         rewritten_yaml = open(destination_file_name, "w", encoding="utf-8")
+        print(f'Writing file: {file_name}')
         # rewritten_yaml = tempfile.NamedTemporaryFile(mode='w', delete=False, prefix=self.__tmp_prefix, dir="tmp", suffix="yaml")
 
         param_rewrites, keys_rewrites = self.resolve_rewrites(context)
